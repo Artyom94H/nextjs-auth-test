@@ -5,9 +5,9 @@ import { StyledLayout } from 'components/layouts/primary/styled';
 
 const { Header, Footer, Content } = Layout;
 
-const PrimaryLayout = ({ children }) => {
+const PrimaryLayout = ({ centered = true, children }) => {
   return (
-    <StyledLayout>
+    <StyledLayout centered={centered.toString()}>
       <Header>
         <PrimaryHeader />
       </Header>

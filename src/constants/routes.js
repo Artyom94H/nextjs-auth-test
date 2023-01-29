@@ -14,7 +14,11 @@ export const ROUTES = {
     exact: true,
   },
   accounts: {
-    path: `${HomePage}accounts`,
+    path: `${HomePage}accounts/*`,
+    exact: true,
+  },
+  accountsGuest: {
+    path: `${HomePage}accounts/guest/:id`,
     exact: true,
   },
   accountsOwner: {

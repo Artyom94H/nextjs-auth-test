@@ -47,6 +47,7 @@ export const useUser = (redirect) => {
       }
 
     })();
+    // eslint-disable-next-line
   }, []);
 
   const logoutUser = useCallback(() => {

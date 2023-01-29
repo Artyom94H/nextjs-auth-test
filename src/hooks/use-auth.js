@@ -24,14 +24,14 @@ export const useAuth = ({ setErrors }) => {
         setLoading(false);
       }
     },
-    [navigate],
+    [navigate, setErrors],
   );
 
   const onSignUp = useCallback(
     async (values) => {
       setLoading(true);
       try {
-        const { data } = await api.signUp({
+        await api.signUp({
           data: values,
         });
         navigate('/sign-in');
@@ -41,7 +41,7 @@ export const useAuth = ({ setErrors }) => {
         setLoading(false);
       }
     },
-    [navigate],
+    [navigate, setErrors],
   );
 
   return {
