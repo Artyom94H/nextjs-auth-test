@@ -4,6 +4,8 @@ import { useRecoilValue } from 'recoil';
 import { useCallback, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from 'constants/routes';
+import { ReactComponent as Logo } from 'assets/icons/logo.svg';
+import LogoPng from 'assets/icons/logo.png';
 
 const PrimaryHeader = () => {
   const user = useRecoilValue(getUser);
@@ -67,12 +69,20 @@ const PrimaryHeader = () => {
   // console.log('user', user);
   return (
     <>
-      <Row>
+      <Row style={{ height: '100%' }}>
         <Col span={12}>
-          <Space>
-            <span>image</span>
-            <span>some text</span>
-          </Space>
+          <Row align='middle' style={{ height: '100%' }}>
+            <Col span={4}>
+              <Link to={ROUTES.home.path}>
+                <Row align='middle'>
+                  <Logo />
+                </Row>
+              </Link>
+            </Col>
+            <Col>
+              <Typography.Text style={{ display: 'flex' }}>Разрабатываем и запускаем <br/> сложные веб проекты</Typography.Text>
+            </Col>
+          </Row>
         </Col>
         <Col span={12}>
           <Row justify='end'>

@@ -8,11 +8,11 @@ import GlobalLoader from 'components/global-loader';
 const { Header, Footer, Content } = Layout;
 
 const PrimaryLayout = ({ centered = true, children }) => {
-  const { loading } = useUser(false);
+  const { loading, user } = useUser(false);
   if (loading) return <GlobalLoader />;
 
   return (
-    <StyledLayout centered={centered.toString()}>
+    <StyledLayout loggedIn={!!user} centered={centered.toString()}>
       <Header>
         <PrimaryHeader />
       </Header>

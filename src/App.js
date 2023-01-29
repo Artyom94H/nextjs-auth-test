@@ -7,7 +7,16 @@ function App() {
   return (
     <BrowserRouter>
       <RecoilRoot>
-        <ConfigProvider>
+        <ConfigProvider
+          theme={{
+            components: {
+              Input: {},
+            },
+            token: {
+              colorPrimary: '#D4D4D4',
+            },
+          }}
+        >
           <Pages />
         </ConfigProvider>
       </RecoilRoot>

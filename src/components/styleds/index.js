@@ -10,6 +10,9 @@ export const CenteredContainer = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-  padding: 20px;
-  background-color: white;
+  padding: 30px;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+  max-width: 400px;
+  background-color: #FFFFFF;
 `;

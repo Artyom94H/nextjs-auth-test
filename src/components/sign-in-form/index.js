@@ -33,7 +33,7 @@ const SignInForm = ({ onFinish, form, resetErrors, loading, errors, }) => {
             },
           ]}
         >
-          <Input prefix={<MailOutlined />} placeholder='E-mail' />
+          <Input size='large' prefix={<MailOutlined />} placeholder='E-mail' />
         </Form.Item>
         <Form.Item
           name='password'
@@ -44,10 +44,10 @@ const SignInForm = ({ onFinish, form, resetErrors, loading, errors, }) => {
             },
           ]}
         >
-          <Input.Password prefix={<LockOutlined />} placeholder='Пароль' />
+          <Input.Password size='large' prefix={<LockOutlined />} placeholder='Пароль' />
         </Form.Item>
         <FormErrors errors={errors} />
-        <Button loading={loading} style={{ width: '100%' }} htmlType='submit'>
+        <Button size='large' loading={loading} style={{ width: '100%' }} htmlType='submit'>
           Вход
         </Button>
       </Form>
