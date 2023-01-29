@@ -23,6 +23,10 @@ class Api {
     return this.buildQuery('put', params, id);
   };
 
+  patch = (id, params) => {
+    return this.buildQuery('patch', params, id);
+  };
+
   destroy = (id) => {
     return this.buildQuery('delete', {}, id);
   };

@@ -1,13 +1,30 @@
-import { Button, Col, Row, Space } from 'antd';
+import { Button, Col, Row, Space, Dropdown, Avatar, Typography } from 'antd';
 import { getUser } from 'hooks/use-user';
 import { useRecoilValue } from 'recoil';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from 'constants/routes';
 
 const PrimaryHeader = () => {
   const user = useRecoilValue(getUser);
   const location = useLocation();
+
+  const items = useMemo(() => {
+    return [
+      {
+        key: 'accounts',
+        label: (
+          <>
+            <Link to={ROUTES.accountsList.path}>Список аккаунтов</Link>
+          </>
+        ),
+      },
+    ];
+  }, []);
+
+  const onClick = useCallback((e) => {
+    console.log('Eve', e);
+  }, []);
 
   const rightSide = useMemo(() => {
     const isSignIn = location.pathname.includes(ROUTES.signIn.path);
@@ -16,20 +33,24 @@ const PrimaryHeader = () => {
     if (user) {
       return (
         <>
-          {/*<Dropdown*/}
-          {/*  menu={{*/}
-          {/*    items,*/}
-          {/*    onClick,*/}
-          {/*  }}*/}
-          {/*  trigger={['click']}*/}
-          {/*>*/}
-          {/*  <a onClick={(e) => e.preventDefault()}>*/}
-          {/*    <Space>*/}
-          {/*      Click me*/}
-          {/*      <DownOutlined />*/}
-          {/*    </Space>*/}
-          {/*  </a>*/}
-          {/*</Dropdown>*/}
+          <Space>
+            <Link to={ROUTES.accountsOwner.path}>
+              <Typography.Text>{user?.name}</Typography.Text>
+            </Link>
+            <Dropdown
+              menu={{
+                items,
+                onClick,
+              }}
+              trigger={['click']}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <Space>
+                  <Avatar />
+                </Space>
+              </a>
+            </Dropdown>
+          </Space>
         </>
       );
     }
@@ -41,7 +62,7 @@ const PrimaryHeader = () => {
         </Link>
       </>
     );
-  }, [user, location]);
+  }, [user, location, onClick, items]);
 
   // console.log('user', user);
   return (

@@ -10,8 +10,9 @@ const SignUpForm = ({ onFinish, form, resetErrors, loading, errors, }) => {
         Регистрация в Yoldi Agency
       </Typography.Title>
       <Form
+        autoComplete='off'
         form={form}
-        name='signIn'
+        name='signUp'
         initialValues={{
           email: '',
           password: '',

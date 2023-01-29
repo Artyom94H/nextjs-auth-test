@@ -17,6 +17,10 @@ export const ROUTES = {
     path: `${HomePage}accounts/*`,
     exact: true,
   },
+  accountsList: {
+    path: `${HomePage}accounts/list`,
+    exact: true,
+  },
   accountsGuest: {
     path: `${HomePage}accounts/guest/:id`,
     exact: true,

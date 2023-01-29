@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from 'constants/routes';
 import Container from 'components/container';
 
-const Account = ({ edit = false, user = {} }) => {
+const Account = ({ edit = false, user = {}, logout }) => {
   return (
     <>
       <StyledAccountHero />
@@ -36,7 +36,7 @@ const Account = ({ edit = false, user = {} }) => {
           </Col>
           {!!edit && (
             <Col xxl={18} xl={18} lg={18} md={18} sm={24} xs={24}>
-              <Button>
+              <Button onClick={logout}>
                 Sign out
               </Button>
             </Col>
